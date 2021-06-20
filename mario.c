@@ -34,7 +34,7 @@ int main(void)
 int valid_check(void)
 /*
 * function to receive user input of height_temp,
-* and check if it is an int greater than 0
+* and check if it is an int greater than 0 and less than 9
 *
 * :return: int
 */
@@ -46,8 +46,11 @@ int valid_check(void)
     {
         // get start size from user
         height_temp = get_int("height? \n");
-        // check if larger than zero
-        proceed1 = !(height_temp > 0);
+        // check if
+        proceed1 = !(
+            (height_temp > 0) // larger than zero
+            && (height_temp < 9) // less than nine
+            );
         // printf("%i", proceed1);
     }
     while (proceed1);

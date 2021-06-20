@@ -23,7 +23,7 @@ int main(void)
         years1++;
     }
     // TODO: Print number of years
-    printf("%i", years1);
+    printf("Years: %i", years1);
 }
 
 

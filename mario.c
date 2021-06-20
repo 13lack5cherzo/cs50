@@ -14,10 +14,10 @@ int main(void)
     // iterate print
     for (int row1 = 1; row1 <= height1; row1++) // working variable row1 for height1 user input
     {
-        // print appropriate number of "."
+        // print appropriate number of " "
         for (int col1 = height1; col1 > row1; col1--) // working variable col1 for row1 user input
         {
-            printf(".");
+            printf(" ");
         }
         // print appropriate number of "#"
         for (int col1 = 0; col1 < row1; col1++) // working variable col1 for row1 user input

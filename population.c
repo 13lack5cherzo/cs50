@@ -44,7 +44,7 @@ float start_check(void)
         // get start size from user
         start_size_temp = get_float("start size? \n");
         // check if larger than zero
-        proceed1 = !(start_size_temp > 3);
+        proceed1 = !(start_size_temp > 8);
         // printf("%i", proceed1);
     }
     while (proceed1);

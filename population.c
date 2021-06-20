@@ -74,7 +74,7 @@ float start_end(float _start_size)
         // get end size from user
         end_size_temp = get_float("end size? \n");
         // check if larger than start size
-        proceed1 = !(end_size_temp > _start_size);
+        proceed1 = !(end_size_temp >= _start_size);
     }
     while (proceed1);
 

@@ -53,7 +53,8 @@ int main(void) // main script
         printf("Grade %i\n", cl_idx_round);
     }
 
-    return cl_idx;
+    // return cl_idx;
+    return 0; // exit code
 }
 
 

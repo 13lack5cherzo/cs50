@@ -167,19 +167,20 @@ void tabulate(void)
     */
 
     // loop through each voter
-    for (int vidx = 0; vidx < candidate_count; vidx++)
+    for (int vidx = 0; vidx < voter_count; vidx++)
     {
+        // printf("vidx %i\n", vidx); // debug
         // declare variable to store voter's effective choice that round,
         // corresponding to a candidate
         int e_choice = -1;
-
 
         // loop through each preference
         int pidx = 0; // declare preference index
         bool ploop_b = true; // declare flag to continue preference looping
         while (ploop_b)
         {
-            if (// if candidate is eliminated
+            // printf("pidx %i\n", pidx); // debug
+            if ( // if candidate is eliminated
                 candidates[
                     preferences[vidx][pidx] // for candidate index in voter_vidx preference_pidx,
                     ].eliminated) // get eliminated status

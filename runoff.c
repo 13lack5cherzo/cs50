@@ -216,7 +216,7 @@ bool print_winner(void)
     for (int cidx = 0; cidx < candidate_count; cidx++)
     {
         // if the candidate has more than 1/2 the votes,
-        if (candidates[cidx].votes > win_cond)
+        if ((float) candidates[cidx].votes > win_cond)
         {
             // there exists a winner
             printf("%s", candidates[cidx].name);

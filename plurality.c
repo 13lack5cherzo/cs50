@@ -73,7 +73,7 @@ bool vote(string name)
     */
 
     // find name
-    for (int nidx = 0; nidx < MAX; nidx++)
+    for (int nidx = 0; nidx < candidate_count; nidx++)
     {
         // if user input name is in candidate array,
         if (strcmp(name, candidates[nidx].name) == 0)
@@ -104,7 +104,7 @@ void print_winner(void)
     int maxscore = 0;
 
     // find the maximum score amongst all candidates
-    for (int cidx = 0; cidx < MAX; cidx++)
+    for (int cidx = 0; cidx < candidate_count; cidx++)
     {
         // if candidate has higher votes than the current maxscore,
         if (candidates[cidx].votes > maxscore)
@@ -118,7 +118,7 @@ void print_winner(void)
     // 2
     ////
     // print the candidate name with that max score
-    for (int cidx = 0; cidx < MAX; cidx++)
+    for (int cidx = 0; cidx < candidate_count; cidx++)
     {
         // if candidate has the same number of votes as the  maxscore,
         if (candidates[cidx].votes == maxscore)

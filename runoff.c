@@ -219,7 +219,7 @@ bool print_winner(void)
         if ((float) candidates[cidx].votes > win_cond)
         {
             // there exists a winner
-            printf("%s", candidates[cidx].name);
+            printf("%s\n", candidates[cidx].name);
             return true;
         }
     }

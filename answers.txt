@@ -1,0 +1,35 @@
+sort1 uses: bubble sort
+
+How do you know?: sort1 on already sorted data takes much less time than sort1 on reversed data, because sort1 is bubble sort that is omega(1) on sorted data.
+
+sort2 uses: merge sort
+
+How do you know?: sort 2 takes less time on the reversed data than sort1 and sort3, because merge sort is more efficient in the worst-case scenario
+
+sort3 uses: selection sort
+
+How do you know?: sort3 is bad
+
+
+
+
+
+
+
+time ./sort1 reversed50000.txt
+0m13.172s
+time ./sort1 sorted50000.txt
+0m4.520s
+
+
+time ./sort2 reversed50000.txt
+0m4.092s
+time ./sort2 sorted50000.txt
+0m4.535s
+
+time ./sort3 reversed50000.txt
+0m8.863s
+time ./sort3 sorted50000.txt
+0m7.950s
+
+

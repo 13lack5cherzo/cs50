@@ -124,7 +124,7 @@ void print_winner(void)
         if (candidates[cidx].votes == maxscore)
         {
             // print the candidate name
-            printf("%s", candidates[cidx].name);
+            printf("%s\n", candidates[cidx].name);
         }
     }
 

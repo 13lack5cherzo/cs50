@@ -11,7 +11,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int w1 = 0; w1 < width; w1++)
         {
             // take average to get greyscale
-            int gs_ave = (image[h1][w1].rgbtBlue + image[h1][w1].rgbtGreen + image[h1][w1].rgbtRed) / 3;
+            int gs_ave = round((image[h1][w1].rgbtBlue + image[h1][w1].rgbtGreen + image[h1][w1].rgbtRed) / 3);
 
             // cap at 255
             if (gs_ave > 255)

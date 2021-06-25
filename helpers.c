@@ -118,9 +118,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int w1 = 1; w1 < width - 1; w1++)
         {
             // compute blur by taking average
-            int r1 = round((image[h1+1][w1].rgbtRed + image[h1+1][w1+1].rgbtRed + image[h1][w1+1].rgbtRed + image[h1-1][w1+1].rgbtRed + image[h1-1][w1].rgbtRed + image[h1-1][w1-1].rgbtRed + image[h1][w1-1].rgbtRed + image[h1+1][w1-1].rgbtRed) / 8);
-            int g1 = round((image[h1+1][w1].rgbtGreen + image[h1+1][w1+1].rgbtGreen + image[h1][w1+1].rgbtGreen + image[h1-1][w1+1].rgbtGreen + image[h1-1][w1].rgbtGreen + image[h1-1][w1-1].rgbtGreen + image[h1][w1-1].rgbtGreen + image[h1+1][w1-1].rgbtGreen) / 8);
-            int b1 = round((image[h1+1][w1].rgbtBlue + image[h1+1][w1+1].rgbtBlue + image[h1][w1+1].rgbtBlue + image[h1-1][w1+1].rgbtBlue + image[h1-1][w1].rgbtBlue + image[h1-1][w1-1].rgbtBlue + image[h1][w1-1].rgbtBlue + image[h1+1][w1-1].rgbtBlue) / 8);
+            int r1 = round((image[h1+1][w1].rgbtRed + image[h1+1][w1+1].rgbtRed + image[h1][w1+1].rgbtRed + image[h1-1][w1+1].rgbtRed + image[h1-1][w1].rgbtRed + image[h1-1][w1-1].rgbtRed + image[h1][w1-1].rgbtRed + image[h1+1][w1-1].rgbtRed) / 8.0);
+            int g1 = round((image[h1+1][w1].rgbtGreen + image[h1+1][w1+1].rgbtGreen + image[h1][w1+1].rgbtGreen + image[h1-1][w1+1].rgbtGreen + image[h1-1][w1].rgbtGreen + image[h1-1][w1-1].rgbtGreen + image[h1][w1-1].rgbtGreen + image[h1+1][w1-1].rgbtGreen) / 8.0);
+            int b1 = round((image[h1+1][w1].rgbtBlue + image[h1+1][w1+1].rgbtBlue + image[h1][w1+1].rgbtBlue + image[h1-1][w1+1].rgbtBlue + image[h1-1][w1].rgbtBlue + image[h1-1][w1-1].rgbtBlue + image[h1][w1-1].rgbtBlue + image[h1+1][w1-1].rgbtBlue) / 8.0);
 
             // cap at 255
             if (b1 > 255)
@@ -147,9 +147,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     for (int w1 = 1; w1 < width - 1; w1++)
     {
         // compute blur by taking average
-        int r1 = round((image[h0][w1].rgbtRed + image[h0][w1+1].rgbtRed + image[h0-1][w1+1].rgbtRed + image[h0-1][w1].rgbtRed + image[h0-1][w1-1].rgbtRed + image[h0][w1-1].rgbtRed) / 6);
-        int g1 = round((image[h0][w1].rgbtGreen + image[h0][w1+1].rgbtGreen + image[h0-1][w1+1].rgbtGreen + image[h0-1][w1].rgbtGreen + image[h0-1][w1-1].rgbtGreen + image[h0][w1-1].rgbtGreen) / 6);
-        int b1 = round((image[h0][w1].rgbtBlue + image[h0][w1+1].rgbtBlue + image[h0-1][w1+1].rgbtBlue + image[h0-1][w1].rgbtBlue + image[h0-1][w1-1].rgbtBlue + image[h0][w1-1].rgbtBlue) / 6);
+        int r1 = round((image[h0][w1].rgbtRed + image[h0][w1+1].rgbtRed + image[h0-1][w1+1].rgbtRed + image[h0-1][w1].rgbtRed + image[h0-1][w1-1].rgbtRed + image[h0][w1-1].rgbtRed) / 6.0);
+        int g1 = round((image[h0][w1].rgbtGreen + image[h0][w1+1].rgbtGreen + image[h0-1][w1+1].rgbtGreen + image[h0-1][w1].rgbtGreen + image[h0-1][w1-1].rgbtGreen + image[h0][w1-1].rgbtGreen) / 6.0);
+        int b1 = round((image[h0][w1].rgbtBlue + image[h0][w1+1].rgbtBlue + image[h0-1][w1+1].rgbtBlue + image[h0-1][w1].rgbtBlue + image[h0-1][w1-1].rgbtBlue + image[h0][w1-1].rgbtBlue) / 6.0);
 
         // cap at 255
         if (b1 > 255)
@@ -175,9 +175,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     for (int w1 = 1; w1 < width - 1; w1++)
     {
         // compute blur by taking average
-        int r1 = round((image[h0][w1].rgbtRed + image[h0+1][w1].rgbtRed + image[h0+1][w1+1].rgbtRed + image[h0][w1+1].rgbtRed + image[h0][w1-1].rgbtRed + image[h0+1][w1-1].rgbtRed) / 6);
-        int g1 = round((image[h0][w1].rgbtGreen + image[h0+1][w1].rgbtGreen + image[h0+1][w1+1].rgbtGreen + image[h0][w1+1].rgbtGreen + image[h0][w1-1].rgbtGreen + image[h0+1][w1-1].rgbtGreen) / 6);
-        int b1 = round((image[h0][w1].rgbtBlue + image[h0+1][w1].rgbtBlue + image[h0+1][w1+1].rgbtBlue + image[h0][w1+1].rgbtBlue + image[h0][w1-1].rgbtBlue + image[h0+1][w1-1].rgbtBlue) / 6);
+        int r1 = round((image[h0][w1].rgbtRed + image[h0+1][w1].rgbtRed + image[h0+1][w1+1].rgbtRed + image[h0][w1+1].rgbtRed + image[h0][w1-1].rgbtRed + image[h0+1][w1-1].rgbtRed) / 6.0);
+        int g1 = round((image[h0][w1].rgbtGreen + image[h0+1][w1].rgbtGreen + image[h0+1][w1+1].rgbtGreen + image[h0][w1+1].rgbtGreen + image[h0][w1-1].rgbtGreen + image[h0+1][w1-1].rgbtGreen) / 6.0);
+        int b1 = round((image[h0][w1].rgbtBlue + image[h0+1][w1].rgbtBlue + image[h0+1][w1+1].rgbtBlue + image[h0][w1+1].rgbtBlue + image[h0][w1-1].rgbtBlue + image[h0+1][w1-1].rgbtBlue) / 6.0);
 
         // cap at 255
         if (b1 > 255)
@@ -203,9 +203,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     for (int h1 = 1; h1 < height - 1; h1++)
     {
         // compute blur by taking average
-        int r1 = round((image[h1][w0].rgbtRed + image[h1+1][w0].rgbtRed + image[h1+1][w0+1].rgbtRed + image[h1][w0+1].rgbtRed + image[h1-1][w0+1].rgbtRed + image[h1-1][w0].rgbtRed) / 6);
-        int g1 = round((image[h1][w0].rgbtGreen + image[h1+1][w0].rgbtGreen + image[h1+1][w0+1].rgbtGreen + image[h1][w0+1].rgbtGreen + image[h1-1][w0+1].rgbtGreen + image[h1-1][w0].rgbtGreen) / 6);
-        int b1 = round((image[h1][w0].rgbtBlue + image[h1+1][w0].rgbtBlue + image[h1+1][w0+1].rgbtBlue + image[h1][w0+1].rgbtBlue + image[h1-1][w0+1].rgbtBlue + image[h1-1][w0].rgbtBlue) / 6);
+        int r1 = round((image[h1][w0].rgbtRed + image[h1+1][w0].rgbtRed + image[h1+1][w0+1].rgbtRed + image[h1][w0+1].rgbtRed + image[h1-1][w0+1].rgbtRed + image[h1-1][w0].rgbtRed) / 6.0);
+        int g1 = round((image[h1][w0].rgbtGreen + image[h1+1][w0].rgbtGreen + image[h1+1][w0+1].rgbtGreen + image[h1][w0+1].rgbtGreen + image[h1-1][w0+1].rgbtGreen + image[h1-1][w0].rgbtGreen) / 6.0);
+        int b1 = round((image[h1][w0].rgbtBlue + image[h1+1][w0].rgbtBlue + image[h1+1][w0+1].rgbtBlue + image[h1][w0+1].rgbtBlue + image[h1-1][w0+1].rgbtBlue + image[h1-1][w0].rgbtBlue) / 6.0);
 
         // cap at 255
         if (b1 > 255)
@@ -232,9 +232,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     for (int h1 = 1; h1 < height - 1; h1++)
     {
         // compute blur by taking average
-        int r1 = round((image[h1][w0].rgbtRed + image[h1+1][w0].rgbtRed + image[h1-1][w0].rgbtRed + image[h1-1][w0-1].rgbtRed + image[h1][w0-1].rgbtRed + image[h1+1][w0-1].rgbtRed) / 6);
-        int g1 = round((image[h1][w0].rgbtGreen + image[h1+1][w0].rgbtGreen + image[h1-1][w0].rgbtGreen + image[h1-1][w0-1].rgbtGreen + image[h1][w0-1].rgbtGreen + image[h1+1][w0-1].rgbtGreen) / 6);
-        int b1 = round((image[h1][w0].rgbtBlue + image[h1+1][w0].rgbtBlue + image[h1-1][w0].rgbtBlue + image[h1-1][w0-1].rgbtBlue + image[h1][w0-1].rgbtBlue + image[h1+1][w0-1].rgbtBlue) / 6);
+        int r1 = round((image[h1][w0].rgbtRed + image[h1+1][w0].rgbtRed + image[h1-1][w0].rgbtRed + image[h1-1][w0-1].rgbtRed + image[h1][w0-1].rgbtRed + image[h1+1][w0-1].rgbtRed) / 6.0);
+        int g1 = round((image[h1][w0].rgbtGreen + image[h1+1][w0].rgbtGreen + image[h1-1][w0].rgbtGreen + image[h1-1][w0-1].rgbtGreen + image[h1][w0-1].rgbtGreen + image[h1+1][w0-1].rgbtGreen) / 6.0);
+        int b1 = round((image[h1][w0].rgbtBlue + image[h1+1][w0].rgbtBlue + image[h1-1][w0].rgbtBlue + image[h1-1][w0-1].rgbtBlue + image[h1][w0-1].rgbtBlue + image[h1+1][w0-1].rgbtBlue) / 6.0);
 
         // cap at 255
         if (b1 > 255)
@@ -258,32 +258,32 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     // bottom left corner
     h0 = height - 1;
     w0 = 0;
-    simage[h0][w0].rgbtRed = round((image[h0][w0].rgbtRed + image[h0][w0+1].rgbtRed + image[h0-1][w0+1].rgbtRed + image[h0-1][w0].rgbtRed) / 4);
-    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0][w0+1].rgbtGreen + image[h0-1][w0+1].rgbtGreen + image[h0-1][w0].rgbtGreen) / 4);
-    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0][w0+1].rgbtBlue + image[h0-1][w0+1].rgbtBlue + image[h0-1][w0].rgbtBlue) / 4);
+    simage[h0][w0].rgbtRed = round((image[h0][w0].rgbtRed + image[h0][w0+1].rgbtRed + image[h0-1][w0+1].rgbtRed + image[h0-1][w0].rgbtRed) / 4.0);
+    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0][w0+1].rgbtGreen + image[h0-1][w0+1].rgbtGreen + image[h0-1][w0].rgbtGreen) / 4.0);
+    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0][w0+1].rgbtBlue + image[h0-1][w0+1].rgbtBlue + image[h0-1][w0].rgbtBlue) / 4.0);
 
     // bottom right corner
     h0 = height - 1;
     w0 = width - 1;
-    simage[h0][w0].rgbtRed  = round((image[h0][w0].rgbtRed + image[h0-1][w0].rgbtRed + image[h0-1][w0-1].rgbtRed + image[h0][w0-1].rgbtRed) / 4);
-    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0-1][w0].rgbtGreen + image[h0-1][w0-1].rgbtGreen + image[h0][w0-1].rgbtGreen) / 4);
-    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0-1][w0].rgbtBlue + image[h0-1][w0-1].rgbtBlue + image[h0][w0-1].rgbtBlue) / 4);
+    simage[h0][w0].rgbtRed  = round((image[h0][w0].rgbtRed + image[h0-1][w0].rgbtRed + image[h0-1][w0-1].rgbtRed + image[h0][w0-1].rgbtRed) / 4.0);
+    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0-1][w0].rgbtGreen + image[h0-1][w0-1].rgbtGreen + image[h0][w0-1].rgbtGreen) / 4.0);
+    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0-1][w0].rgbtBlue + image[h0-1][w0-1].rgbtBlue + image[h0][w0-1].rgbtBlue) / 4.0);
 
 
     // top left corner
     h0 = 0;
     w0 = 0;
-    simage[h0][w0].rgbtRed  = round((image[h0][w0].rgbtRed + image[h0+1][w0].rgbtRed + image[h0+1][w0+1].rgbtRed + image[h0][w0+1].rgbtRed) / 4);
-    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0+1][w0].rgbtGreen + image[h0+1][w0+1].rgbtGreen + image[h0][w0+1].rgbtGreen) / 4);
-    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0+1][w0].rgbtBlue + image[h0+1][w0+1].rgbtBlue + image[h0][w0+1].rgbtBlue) / 4);
+    simage[h0][w0].rgbtRed  = round((image[h0][w0].rgbtRed + image[h0+1][w0].rgbtRed + image[h0+1][w0+1].rgbtRed + image[h0][w0+1].rgbtRed) / 4.0);
+    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0+1][w0].rgbtGreen + image[h0+1][w0+1].rgbtGreen + image[h0][w0+1].rgbtGreen) / 4.0);
+    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0+1][w0].rgbtBlue + image[h0+1][w0+1].rgbtBlue + image[h0][w0+1].rgbtBlue) / 4.0);
 
 
     // top right corner
     h0 = 0;
     w0 = width - 1;
-    simage[h0][w0].rgbtRed  = round((image[h0][w0].rgbtRed + image[h0+1][w0].rgbtRed + image[h0][w0-1].rgbtRed + image[h0+1][w0-1].rgbtRed) / 4);
-    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0+1][w0].rgbtGreen + image[h0][w0-1].rgbtGreen + image[h0+1][w0-1].rgbtGreen) / 4);
-    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0+1][w0].rgbtBlue + image[h0][w0-1].rgbtBlue + image[h0+1][w0-1].rgbtBlue) / 4);
+    simage[h0][w0].rgbtRed  = round((image[h0][w0].rgbtRed + image[h0+1][w0].rgbtRed + image[h0][w0-1].rgbtRed + image[h0+1][w0-1].rgbtRed) / 4.0);
+    simage[h0][w0].rgbtGreen = round((image[h0][w0].rgbtGreen + image[h0+1][w0].rgbtGreen + image[h0][w0-1].rgbtGreen + image[h0+1][w0-1].rgbtGreen) / 4.0);
+    simage[h0][w0].rgbtBlue = round((image[h0][w0].rgbtBlue + image[h0+1][w0].rgbtBlue + image[h0][w0-1].rgbtBlue + image[h0+1][w0-1].rgbtBlue) / 4.0);
 
 
     // replace original image with swapped one

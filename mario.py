@@ -3,7 +3,7 @@ if __name__ == "__main__":
 
 
     height = int(input("Height: "))
-    if ~(height > 0):
+    while not ((height > 0) & (height < 9)): # check
         height = int(input("Height: "))
 
 

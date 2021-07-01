@@ -1,10 +1,19 @@
 
+def get_height():
+    """function to get height from user"""
+    try:
+        height = int(input("Height: "))
+    except:
+        height = -1
+    return height
+
 if __name__ == "__main__":
 
+    height = get_height()
 
-    height = int(input("Height: "))
-    while not ((height > 0) & (height < 9)): # check
-        height = int(input("Height: "))
+    # check
+    while not ((height > 0) & (height < 9)):
+        height = get_height()
 
 
     for col1 in range (1, height + 1):

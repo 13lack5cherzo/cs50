@@ -87,7 +87,7 @@ void free_family(person *p)
     // Free parents
     for (int p1 = 0; p1 < 2; p1++)
     {
-        return free_family(p->parents[p1]);
+        free_family(p->parents[p1]);
     }
 
     // Free child

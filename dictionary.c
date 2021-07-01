@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <strings.h>
 #include <ctype.h>
 #include "dictionary.h"
 
@@ -15,6 +16,8 @@ typedef struct node
     struct node *next;
 }
 node;
+
+void free_ll(node *nf);
 
 // Number of buckets in hash table
 const unsigned int N = 26 * 26 + 1;
@@ -35,7 +38,7 @@ bool check(const char *word)
     for (node *tempnode = table[hidx]; tempnode != NULL; tempnode = tempnode->next)
     {
         // if match is found,
-        if (tempnode->word == word)
+        if (strcasecmp(tempnode->word, word) == 0)
         {
             return true;
         }
@@ -87,7 +90,7 @@ bool load(const char *dictionary)
     // Set hash table all to null
     for (int tidx = 0; tidx < N; tidx++)
     {
-        table[tidx]->next = NULL;
+        table[tidx] = NULL;
     }
 
     // read strings from file one at a time
@@ -130,8 +133,11 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
-    return false;
+    for (int tidx = 0; tidx < N; tidx++)
+    {
+        free_ll(table[tidx]);
+    }
+    return true;
 }
 
 // free linked list

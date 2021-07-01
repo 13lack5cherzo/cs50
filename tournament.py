@@ -27,7 +27,7 @@ def main():
     counts = {key1:0 for key1 in teams_d.keys()}
     # Simulate N tournaments and keep track of win counts
     for tournament1 in range(0, N):
-        tournament_winner = simulate_tournament(teams)["team"] # get winner
+        tournament_winner = simulate_tournament(teams) # get winner
         counts[tournament_winner] = counts[tournament_winner] + 1 # add win
 
     # Print each team's chances of winning, according to simulation
@@ -63,7 +63,7 @@ def simulate_tournament(teams):
     # simulate till only 1 winner is left
     while len(win_team) != 1:
         win_team = simulate_round(win_team)
-    return win_team[0]
+    return win_team[0]["team"] # return only team
 
 
 if __name__ == "__main__":

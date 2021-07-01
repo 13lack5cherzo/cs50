@@ -81,7 +81,7 @@ void free_family(person *p)
     for (int p1 = 0; p1 < 2; p1++)
     {
         // Handle base case
-        if (p->parents[p1] == NULL)
+        if (p == NULL)
         {
             return;
         }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+        // function for question 1
+        function onclick1(button_id, color, prompt_id, prompt) {
+            /*
+            * function to change button colour and display text for question 1
+            * :param button_id: str button object id
+            * :param color: str button colour change
+            * :param prompt_id: str prompt object id
+            * :param prompt: str prompt to display
+            */
+
+            document.querySelector(button_id).style.backgroundColor = color; // change colour
+            document.getElementById(prompt_id).innerText = prompt; // display text
+        };
+
+        // function for question 2
+        function check_answer2(value_id, answer, prompt_id) {
+            /*
+            * function to change display text for question 1
+            * :param value_id: str value object id
+            * :param answer: str correct answer
+            * :param prompt_id: str prompt object id
+            */
+            // fetch user answer
+            user_ans = document.getElementById(value_id);
+            if (user_ans.value == answer) { // correct
+                user_ans.style.backgroundColor = "green"; // change colour
+                document.getElementById(prompt_id).innerText = 'Correct!'; // display text
+            }
+            else { // incorrect
+                user_ans.style.backgroundColor = "red"; // change colour
+                document.getElementById(prompt_id).innerText = 'Incorrect'; // display text
+            }
+        };
+
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is (1 + 1)?</h3>
+                <button id="answer11" onclick="onclick1('#answer11', 'red', 'prompt1', 'Incorrect')">1</button>
+                <button id="answer12" onclick="onclick1('#answer12', 'green', 'prompt1', 'Correct!')">2</button>
+                <button id="answer13" onclick="onclick1('#answer13', 'red', 'prompt1', 'Incorrect')">3</button>
+                <p id= "prompt1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is (1 + 1)?</h3>
+                <input id="answer21t" type="text">
+                <button id="answer21" onclick="check_answer2('answer21t', '2', 'prompt2')">Check Answer</button>
+                <p id= "prompt2"></p>
+
+                <!-- TODO: Add free response question here -->
+
+            </div>
+
+        </div>
+    </body>
+</html>

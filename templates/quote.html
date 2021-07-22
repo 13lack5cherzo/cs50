@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Security Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit"> QUOTE </button>
+    </form>
+    <br>
+    <h1> {{ name_q }} </h1>
+    <h1> {{ symbol_q }}: {{ price_q }}</h1>
+{% endblock %}

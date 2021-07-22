@@ -103,14 +103,14 @@ main function where the game runs
 
 
 `int print_board(int **board, int bn);`
-function to print the board
+> function to print the board
 X is printed where player 1 has a token
 O is printed where player 2 has a token
 where there are no tokens, the coordinates are printed
 
 
 `int *get_input(int player_turn, int **board, int bn);`
-function to get input from the user and check validity
+> function to get input from the user and check validity
 1. get user input
 2. check validity
     * check if the input is on the board
@@ -119,13 +119,13 @@ function to get input from the user and check validity
 
 
 `int switch_player(int current_player);`
-function to switch from one player to the other
+> function to switch from one player to the other
 if currently on player 1, switch to player 2
 if currently on player 2, switch to player 1
 
 
 `int check_win(int player_turn, int *last_play, int **board, int bn);`
-function to check winning condition for the current player
+> function to check winning condition for the current player
 1. based on the last token played by the current player,
     * check the row of the last token for `[N]` horizontally adjacent tokens
     * check the column of the last token for `[N]` vertically adjacent tokens

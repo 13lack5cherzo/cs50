@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h1>Portfolio</h1>
+    <br>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Username</th>
+                <th>Cash</th>
+                <th>Portfolio Value</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    {% for info in users_info %}
+                        <td>{{ users_info[info] }}</td>
+                    {% endfor %}
+                        <td>{{ total_value }}</td>
+                </tr>
+
+        </tbody>
+    </table>
+    <br>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Quantity</th>
+                <th>Average Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for security in user_port %}
+                <tr>
+                    <td>{{ security.symbol }}</td>
+                    <td>{{ security.quantity }}</td>
+                    <td>{{ security.average_price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

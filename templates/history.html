@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>History</h1>
+    <br>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trade1 in user_trades %}
+                <tr>
+                    <td>{{ trade1.symbol }}</td>
+                    <td>{{ trade1.quantity }}</td>
+                    <td>{{ trade1.price }}</td>
+                    <td>{{ trade1.time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

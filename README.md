@@ -87,7 +87,7 @@ player 1 wins!
 #### Functions
 
 `int main(int argc, char *argv[]);`
-main function where the game runs
+> main function where the game runs
 1. check input parameters
 2. set up the game
     * generate the board

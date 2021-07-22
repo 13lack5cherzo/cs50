@@ -116,10 +116,10 @@ def buy():
             not input_symbol
             or not input_quantity
             ):
-            return apology("fill in all required fields", 403)
+            return apology("fill in all required fields", 400)
         # Ensure shares is an integer
         if not input_quantity.isdigit():
-            return apology("input positive integer", 403)
+            return apology("input positive integer", 400)
         # convert quantity to int
         input_quantity = int(input_quantity)
 
@@ -127,7 +127,7 @@ def buy():
         lookup_r = lookup(input_symbol)
         # if there is no return, ask user input again
         if lookup_r == None:
-            return render_template("buy.html", gui_prompt="symbol not found")
+            return apology("Symbol Not Found", 400)
 
         # get time
         time_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -188,18 +188,18 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?;", request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            return apology("invalid username and/or password", 400)
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -238,7 +238,7 @@ def quote():
 
         # if there is no return, ask user input again
         if lookup_r == None:
-            return render_template("quote.html", name_q="Symbol Not Found", symbol_q="", price_q="(")
+            return apology("Symbol Not Found", 400)
 
         # else return symbol information
         return render_template("quote.html", name_q=lookup_r["name"], symbol_q=lookup_r["symbol"], price_q=lookup_r["price"])
@@ -267,14 +267,14 @@ def register():
             or not input_password
             or not input_confirmation
             ):
-            return apology("fill in all required fields", 403)
+            return apology("fill in all required fields", 400)
         # ensure that password == confirmation
         if (input_password != input_confirmation):
-            return apology("passwords do not match", 403)
+            return apology("passwords do not match", 400)
         # ensure that username does not exist
         all_users = db.execute("SELECT username FROM users WHERE username = ?;", str(input_username))
         if (len(all_users) != 0):
-            return apology("user already exists", 123)
+            return apology("user already exists", 400)
 
         # generate password_hash
         password_hash = generate_password_hash(input_password)

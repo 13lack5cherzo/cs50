@@ -4,6 +4,7 @@ Tic Tac Toe Player
 
 import math
 import copy
+import random
 
 X = "X"
 O = "O"
@@ -257,7 +258,6 @@ def minimax(board):
     ####
     # main
     ####
-    next_player = player(board)  # get next player
     max_option_d = {  # dictionary of minimax functions to use
         X: False,  # X is maximising; wants to get O's best play
         O: True,  # O is minimising; wants to get X's best play
@@ -267,23 +267,32 @@ def minimax(board):
         O: min,  # O is minimising
     }
 
-    all_actions = list(actions(board))  # all possible actions,
-    all_actions_u = []  # corresponding utility of all possible actions
+    next_player = player(board)  # get next player.
+    all_actions = list(actions(board))  # all possible actions as list.
+    all_actions_u = []  # initialise list with corresponding utility of all possible actions list.
 
-    # The maximizing player picks action a in Actions(s)
-    # that produces the highest value of Min-Value(Result(s, a)).
-    # The minimizing player picks action a in Actions(s)
-    # that produces the lowest value of Max-Value(Result(s, a)).
-    for action1 in all_actions:
-        all_actions_u.append(
-            minimax_value(
-                bstate=result(board, action1),  # current board and possible action
-                max_option=max_option_d[next_player]  # max or min
+    # if first player,
+    if len(all_actions) == 9:
+        # always start in a random corner
+        return (random.randint(0, 1) * 2, random.randint(0, 1) * 2)
+    # if not first player
+    else:
+        # get utility of all possible actions
+        for action1 in all_actions:
+            # The maximizing player picks action a in Actions(s)
+            # that produces the highest value of Min-Value(Result(s, a)).
+            # The minimizing player picks action a in Actions(s)
+            # that produces the lowest value of Max-Value(Result(s, a)).
+            all_actions_u.append(
+                minimax_value(
+                    bstate=result(board, action1),  # current board and possible action
+                    max_option=max_option_d[next_player]  # max or min
+                )
             )
-        )
-    # get index of max/min
-    opt_action_idx = all_actions_u.index(minimax_func_d[next_player](all_actions_u))
-    opt_action = all_actions[opt_action_idx]
 
-    # return maximising/minimising action
-    return opt_action
+        # get index of max/min utility action
+        opt_action_idx = all_actions_u.index(minimax_func_d[next_player](all_actions_u))
+        opt_action = all_actions[opt_action_idx] # get max/min action
+
+        # return
+        return opt_action

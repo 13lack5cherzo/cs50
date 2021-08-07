@@ -118,7 +118,7 @@ def winner(board):
         last_player = X  # last player was X
 
     # create list containing last player's token,
-    winner_list = [last_player] * 3  # to check for winner
+    winner_list = [last_player] * boardlen  # to check for winner
 
     ####
     # check for win
@@ -271,8 +271,8 @@ def minimax(board):
     all_actions = list(actions(board))  # all possible actions as list.
     all_actions_u = []  # initialise list with corresponding utility of all possible actions list.
 
-    # if first player,
-    if len(all_actions) == 9:
+    # if first player (number of possible actions equal all spaces on board)
+    if len(all_actions) == len(board) ** 2:
         # always start in a random corner
         return (random.randint(0, 1) * 2, random.randint(0, 1) * 2)
     # if not first player

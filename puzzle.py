@@ -12,10 +12,12 @@ CKnave = Symbol("C is a Knave")
 ####
 # set up
 ####
+
+
 def knight_or_knave(knowledge_base1):
     """
     function that adds the logic (knight <=> !knave) to knowledge base
-    :param knowledge_base: And() object
+    :param knowledge_base1: And() object
     """
     role_list = [[AKnight, AKnave], [BKnight, BKnave], [CKnight, CKnave]]
     for person1 in role_list:
@@ -74,6 +76,7 @@ print("knowledge2", knowledge2.formula())  # display knowledge base
 # B says "C is a knave."
 # C says "A is a knight."
 ####
+
 knowledge3 = And()  # initialise blank knowledge base
 knight_or_knave(knowledge3)  # knight <=> !knave
 ASaysKnight = Symbol("A says, 'I am a knight.'")  # new symbol representing what A said
@@ -97,6 +100,8 @@ print("knowledge3", knowledge3.formula())  # display knowledge base
 ####
 # main
 ####
+
+
 def main():
     symbols = [AKnight, AKnave, BKnight, BKnave, CKnight, CKnave]
     puzzles = [

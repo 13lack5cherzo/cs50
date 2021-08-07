@@ -35,7 +35,7 @@ knight_or_knave(knowledge0)  # knight <=> !knave
 knowledge0.add(  # AKnight <=> AKnight & AKnave
     Biconditional(AKnight, And(AKnight, AKnave))
 )
-print("knowledge0", knowledge0.formula())  # display knowledge base
+# print("knowledge0", knowledge0.formula())  # display knowledge base
 
 ####
 # Puzzle 1
@@ -49,7 +49,7 @@ knight_or_knave(knowledge1)  # knight <=> !knave
 knowledge1.add(  # AKnight <=> AKnave & BKnave
     Biconditional(AKnight, And(AKnave, BKnave))
 )
-print("knowledge1", knowledge1.formula())  # display knowledge base
+# print("knowledge1", knowledge1.formula())  # display knowledge base
 
 ####
 # Puzzle 2
@@ -66,7 +66,7 @@ knowledge2.add(  # AKnight <=> ((AKnight & BKnight) || (AKnave & BKnave))
 knowledge2.add(  # BKnight <=> ((AKnight & BKnight) || (AKnave & BKnave))
     Biconditional(BKnight, Or(And(AKnight, BKnave), And(AKnave, BKnight)))
 )
-print("knowledge2", knowledge2.formula())  # display knowledge base
+# print("knowledge2", knowledge2.formula())  # display knowledge base
 
 ####
 # Puzzle 3
@@ -95,7 +95,7 @@ knowledge3.add(  # BKnight <=> CKnave
 knowledge3.add(  # CKnight <=> AKnight
     Biconditional(CKnight, AKnight)
 )
-print("knowledge3", knowledge3.formula())  # display knowledge base
+# print("knowledge3", knowledge3.formula())  # display knowledge base
 
 ####
 # main

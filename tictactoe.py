@@ -229,9 +229,9 @@ def minimax(board):
                 minimax_value_try = minimax_value(result(bstate, maction1), a1, b1, not max_option)
 
                 if max_option:  # max agent wants to maximise utility.
-                    if (minimax_value_try == 1):  # if found value is max already
-                        return minimax_value_try  # use it
-                    minimax_value1 = max(minimax_value1, minimax_value_try)
+                    minimax_value1 = max(minimax_value1, minimax_value_try)  # compute max
+                    if minimax_value1 == 1:  # if found value is max already
+                        return minimax_value1  # use it.
                     # if value (max'ed by max player) is more than,
                     if minimax_value1 >= b1:  # what min player is assured of (beta),
                         break  # skip calculation of branch.
@@ -241,9 +241,9 @@ def minimax(board):
                     a1 = max(a1, minimax_value1)
 
                 else:  # min agent wants to minimise utility.
-                    minimax_value1 = min(minimax_value1, minimax_value_try)
-                    if (minimax_value_try == -1):  # if found value is min already
-                        return minimax_value_try  # use it
+                    minimax_value1 = min(minimax_value1, minimax_value_try)  # compute min
+                    if minimax_value1 == -1:  # if found value is min already
+                        return minimax_value1  # use it.
                     # if value (min'ed by min player) is less than,
                     if minimax_value1 <= a1:  # what max player is assured of (alpha),
                         break  # skip calculation of branch.

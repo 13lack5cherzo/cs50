@@ -123,7 +123,7 @@ def sample_pagerank(corpus, damping_factor, n):
     sims_all = np.zeros(shape=len(all_pages))  # init np 1d-array to store simulations
 
     # generate transition matrix as np array
-    tm = np.zeros(shape= [len(all_pages), len(all_pages)])  # init np 2d-array
+    tm = np.zeros(shape=[len(all_pages), len(all_pages)])  # init np 2d-array
     for page_idx1 in range(0, len(all_pages)):  # for each page (row of transition matrix)
         tm_row = transition_model(corpus, all_pages[page_idx1], df)  # compute transition probabilities
         tm[page_idx1] = np.array(list(tm_row.values()))  # add to transition matrix
@@ -133,9 +133,9 @@ def sample_pagerank(corpus, damping_factor, n):
     ####
     for sim_n in range(0, max([n, 1])):
         if sim_n == 0:  # first simulation with equal probability
-            w_sim = np.random.choice(len(all_pages), size= None, replace= True)
+            w_sim = np.random.choice(len(all_pages), size=None, replace=True)
         else:  # subsequent simulations with transition probability based on previous
-            w_sim = np.random.choice(len(all_pages), size= None, replace= True, p= tm[w_sim])
+            w_sim = np.random.choice(len(all_pages), size=None, replace=True, p=tm[w_sim])
         sims_all[w_sim] += 1  # update simulation counts
     # compute pagerank
     pr = sims_all / sims_all.sum()
@@ -182,12 +182,12 @@ def iterate_pagerank(corpus, damping_factor):
     ####
     # compute components
     ####
-    pr0 = np.ones(shape= len(all_pages))  # init PageRank as np 2d-array
+    pr0 = np.ones(shape=len(all_pages))  # init PageRank as np 2d-array
     pr0 = pr0 / pr0.sum()  # 1 / n
-    damp_term = dfc / len(all_pages) * np.ones(shape= len(all_pages))  # (1-d) / n
+    damp_term = dfc / len(all_pages) * np.ones(shape=len(all_pages))  # (1-d) / n
 
     # compute adjacency matrix
-    adj = np.zeros(shape= [len(all_pages), len(all_pages)])  # init adjacency matrix as np 2d-array
+    adj = np.zeros(shape=[len(all_pages), len(all_pages)])  # init adjacency matrix as np 2d-array
     for from_page_idx in range(0, len(all_pages)):  # from each page
         adj_d = {}  # init adjacency dictionary
         for to_page in all_pages:  # for all possible to_page,
@@ -213,7 +213,7 @@ def iterate_pagerank(corpus, damping_factor):
             iter_continue = False  # stop iteration
         else:
             pr0 = pr1  # assign to next iteration
-    pr1 = pr1 / pr1.sum()
+    pr1 = pr1 / pr1.sum()  # normalise to 1
 
     ####
     # output

@@ -332,20 +332,19 @@ class MinesweeperAI():
         self.possible_maybe_moves = list(self.all_board - self.moves_made - self.mines)
         if len(self.possible_maybe_moves) > 0:  # if possible maybe move exists,
             if hasattr(self, "last_move"):  # select last move as anchor cell
-                anchor_cell = random.choice(list(self.moves_made))
+                manhattan_dist = []  # initialise list of manhattan distances corresponding to maybe move list
+                for maybe_move1 in self.possible_maybe_moves:  # for all maybe moves,
+                    # compute manhattan distance
+                    md1 = abs(maybe_move1[0] - self.last_move[0]) + abs(maybe_move1[1] - self.last_move[1])
+                    if md1 < 3:  # if manhattan distance is less than 3 (de-prioritise adjacent cells),
+                        md1 = self.height * self.width  # set distance as board height * width
+                    manhattan_dist.append(md1)
+                # get index of maybe move with the furthest manhattan distance to anchor
+                closest_idx = manhattan_dist.index(min(manhattan_dist))
+                return self.possible_maybe_moves[closest_idx]  # return a random maybe move
             else:  # very first move is random
                 return random.choice(self.possible_maybe_moves)
-            manhattan_dist = []  # initialise list of manhattan distances corresponding to maybe move list
-            for maybe_move1 in self.possible_maybe_moves:  # for all maybe moves,
-                # compute manhattan distance
-                md1 = abs(maybe_move1[0] - anchor_cell[0]) + abs(maybe_move1[1] - anchor_cell[1])
-                if md1 < 3:  # if manhattan distance is less than 3 (de-prioritise adjacent cells),
-                    md1 = self.height * self.width  # set distance as board height * width
-                manhattan_dist.append(md1)
-            # get index of maybe move with the furthest manhattan distance to anchor
-            closest_idx = manhattan_dist.index(min(manhattan_dist))
-            return self.possible_maybe_moves[closest_idx]  # return a random maybe move
-        else:
+        else:  # if no possible maybe move exists,
             return None
 
     @staticmethod

@@ -103,16 +103,16 @@ def shortest_path(source, target):
         """
 
         search_return = Node(None, "init", None)  # initialise dummy node from search loop
-        while True: # repeat
+        while True:  # repeat
             # 1. If the frontier is empty, Stop. There is no solution to the problem.
             if len(frontier.frontier) == 0:
                 break
 
             # 2. Remove a node from the frontier. This is the node that will be considered.
-            w_node = frontier.remove() # get the working node from frontier
+            w_node = frontier.remove()  # get the working node from frontier
 
             # 3. If the node contains the goal state, Return the solution. Stop.
-            if (w_node.state == target):
+            if w_node.state == target:
                 search_return = w_node
                 break
 
@@ -123,22 +123,21 @@ def shortest_path(source, target):
 
                 # get all possible (movie_id, person_id) pairs
                 next_frontier_d = neighbors_for_person(w_node.state)
-                next_frontier_d = { # generate dictionary like
-                    m_p[1]: m_p[0] # {person: movie}
-                    for m_p in next_frontier_d # from all possible (movie_id, person_id) pairs
-                    if m_p[1] != w_node.state # if person_id not same as working node
+                next_frontier_d = {  # generate dictionary like
+                    m_p[1]: m_p[0]  # {person: movie}
+                    for m_p in next_frontier_d  # from all possible (movie_id, person_id) pairs
+                    if m_p[1] != w_node.state  # if person_id not same as working node
                 }
                 # generate nodes from {person: movie} dictionary and add them to frontier
                 for p_id in next_frontier_d.keys():
-                    add_node = Node(p_id, w_node, next_frontier_d[p_id]) # substantiate node to add
-                    if not explored_set.contains_state(add_node.state): # check if the node is not in the explored set
-                        frontier.add(add_node) # add node to frontier
+                    add_node = Node(p_id, w_node, next_frontier_d[p_id])  # substantiate node to add
+                    if not explored_set.contains_state(add_node.state):  # check if the node is not in the explored set
+                        frontier.add(add_node)  # add node to frontier
 
                 # Add the current node to the explored set.
                 explored_set.add(w_node)
 
         return search_return
-
 
     def parse_output_list(last_node, return_list=[]):
         """
@@ -150,7 +149,7 @@ def shortest_path(source, target):
         :return: 2-d list of [(movie_id, person_id), ]
         """
 
-        if last_node.parent == "init": # reached first node
+        if last_node.parent == "init":  # reached first node
             return return_list
         else:
             # append
@@ -159,11 +158,10 @@ def shortest_path(source, target):
             # go to parent
             return parse_output_list(last_node.parent, next_return)
 
-
     ####
     # starting node
     ####
-    node0 = Node(source, "init", "init") # substantiate
+    node0 = Node(source, "init", "init")  # substantiate
 
     ####
     # breadth-first search

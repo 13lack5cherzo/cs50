@@ -91,7 +91,6 @@ def load_data(filename):
         'SpecialDay': float,
     })
 
-
     shopping_df = pd.read_csv(  # read dataset as pd df
         os.getcwd() + "/" + filename,
         dtype=dtypes_d,

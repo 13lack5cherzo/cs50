@@ -111,9 +111,8 @@ def load_data(filename):
         1, 0  # {1: returning visitors, 0: not returning visitors}
     ).astype(int)  # coerce to int
 
-    X = [list(row1[1:]) for row1 in shopping_df.iloc[:, :-1].itertuples()]
-    y = shopping_df["Revenue"].tolist()
-    X[0]
+    X = [list(row1[1:]) for row1 in shopping_df.iloc[:, :-1].itertuples()]  # parse data into list
+    y = shopping_df["Revenue"].tolist()  # parse data into list
 
     return X, y
 

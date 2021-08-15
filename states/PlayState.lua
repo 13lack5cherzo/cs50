@@ -37,7 +37,7 @@ function PlayState:update(dt)
         self.timer = self.timer + dt
 
         -- spawn a new pipe pair every random timing
-        if self.timer > 2 + math.random(0, 200) then
+        if self.timer > 2 + math.random(0, 100) then
             -- modify the last Y coordinate we placed so pipe gaps aren't too far apart
             -- no higher than 10 pixels below the top edge of the screen,
             -- and no lower than a gap length (90 pixels) from the bottom

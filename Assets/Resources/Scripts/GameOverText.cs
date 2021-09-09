@@ -20,7 +20,7 @@ public class GameOverText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Debug.Log(SkyscraperSpawner.speed);  // debug: print scrolling speed
+        Debug.Log("speed: " + SkyscraperSpawner.speed);  // debug: print scrolling speed
 
         if (helicopter != null) {
 			coins = helicopter.GetComponent<HeliController>().coinTotal;

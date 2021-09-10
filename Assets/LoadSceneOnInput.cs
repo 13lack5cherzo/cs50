@@ -1,0 +1,27 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class LoadSceneOnInput : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetAxis("Submit") == 1) {
+            // go to play from title
+            if (SceneManager.GetActiveScene().name == "Title")
+            {
+                SceneManager.LoadScene("Play");
+            }
+            // go to title from game over
+            else {
+                SceneManager.LoadScene("Title");
+            }
+		}
+	}
+}

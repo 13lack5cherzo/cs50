@@ -14,7 +14,7 @@ push = require 'lib/push'
 Timer = require 'lib/knife.timer'
 
 -- utilities
-require 'src/util/constants'
+require 'src/util/Constants'
 require 'src/util/Util'
 
 -- state machine

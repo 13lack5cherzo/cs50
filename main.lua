@@ -5,7 +5,7 @@
 
 ]]
 
-require 'src/Util/Dependencies'
+require 'src/util/Dependencies'
 
 function love.load()
     love.window.setTitle(GAME_NAME)
